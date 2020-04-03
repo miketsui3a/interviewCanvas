@@ -31,6 +31,8 @@ export class TestCanvas extends Component {
         }
     }
 
+    
+
     componentDidMount() {
         this.canvas = this.refs.canvas
         this.ctx = this.canvas.getContext("2d")
@@ -61,6 +63,9 @@ export class TestCanvas extends Component {
             }
         })
 
+
+        
+
     }
 
     tick() {
@@ -90,7 +95,7 @@ export class TestCanvas extends Component {
                 if(this.state.timer<3000){
                     clearTimeout(this.timeOut)
                 }else{
-                    this.vid.play()
+                    this.vid.pause()
                 }
                 clearInterval(this.interval)
             } else {
@@ -102,7 +107,7 @@ export class TestCanvas extends Component {
                         x.play()
                     }, 3000-this.state.timer,this.vid)
                 }else{
-                    this.vid.pause()
+                    this.vid.play()
                 }
                 this.interval = setInterval(() => {
                     let s = this.state.timer
@@ -119,9 +124,6 @@ export class TestCanvas extends Component {
     }
 
 
-    componentWillUnmount() {
-        clearInterval()
-    }
 
     render() {
         return (
